@@ -1,22 +1,26 @@
 {
-  "Lorena ↔ Guaratinguetá (Comum)": {
-    "valor": 5.95,
+  "Lorena ↔ Guaratinguetá (Comum - Linha 5312)": {
+    "valor": 5.80,
     "atualizado_em": "2026-11-23"
   },
-  "Lorena ↔ Guaratinguetá (Seletivo)": {
-    "valor": 8.40,
+  "Aparecida ↔ Guaratinguetá (Comum - Linha 5316)": {
+    "valor": 4.55,
     "atualizado_em": "2026-11-23"
   },
-  "Guaratinguetá ↔ Aparecida (Seletivo)": {
-    "valor": 8.40,
+  "Lorena ↔ Guaratinguetá (Seletivo - Linha 5305)": {
+    "valor": 8.15,
     "atualizado_em": "2026-11-23"
   },
-  "Guaratinguetá ↔ São José dos Campos (Seletivo)": {
-    "valor": 35.80,
+  "Guaratinguetá ↔ Aparecida (Seletivo - Linha 5305)": {
+    "valor": 5.45,
     "atualizado_em": "2026-11-23"
   },
-  "Lorena ↔ São José dos Campos (Seletivo)": {
-    "valor": 38.90,
+  "Guaratinguetá ↔ São José dos Campos (Rodoviário)": {
+    "valor": 39.40,
+    "atualizado_em": "2026-11-23"
+  },
+  "Lorena ↔ São José dos Campos (Seletivo - Linha 5305)": {
+    "valor": 44.65,
     "atualizado_em": "2026-11-23"
   }
 }
