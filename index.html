@@ -1,307 +1,145 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tarifas Vale do Paraíba</title>
-  <style>
-    :root {
-      --bg: #071324;
-      --card: rgba(15, 31, 56, 0.90);
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --accent: #38bdf8;
-      --accent-bg: rgba(56, 189, 248, 0.14);
-      --border: #1e3a63;
-      --danger: #f87171;
-    }
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: radial-gradient(circle at top, #0f294a 0%, #071324 100%);
-      color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 16px;
-      margin: 0;
-      position: relative;
-      overflow-x: hidden;
-    }
-    .bg-gladio {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 680px;
-      max-width: 95vw;
-      opacity: 0.12;
-      pointer-events: none;
-      z-index: 0;
-      color: #ffffff;
-    }
-    .card {
-      position: relative;
-      z-index: 1;
-      background: var(--card);
-      backdrop-filter: blur(6px);
-      border: 1px solid var(--border);
-      max-width: 480px;
-      width: 100%;
-      padding: 26px;
-      border-radius: 16px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-    }
-    .header-topo {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      text-transform: uppercase;
-    }
-    .mini-gladio {
-      width: 46px;
-      height: auto;
-      color: var(--accent);
-      opacity: 0.9;
-    }
-    h1 { font-size: 1.35rem; margin: 0 0 4px; }
-    p.sub { font-size: 0.85rem; color: var(--muted); margin: 0 0 18px; }
-
-    /* Estilo das Abas */
-    .tabs {
-      display: flex;
-      gap: 6px;
-      background: rgba(7, 19, 36, 0.7);
-      padding: 5px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      margin-bottom: 20px;
-    }
-    .tab-btn {
-      flex: 1;
-      padding: 9px 6px;
-      background: transparent;
-      color: var(--muted);
-      border: none;
-      border-radius: 7px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .tab-btn.active {
-      background: var(--accent);
-      color: #071324;
-    }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-
-    label { display: block; font-size: 0.84rem; color: var(--muted); margin-bottom: 6px; }
-    select, input {
-      width: 100%;
-      padding: 11px 12px;
-      background: rgba(7, 19, 36, 0.85);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.95rem;
-      margin-bottom: 14px;
-      box-sizing: border-box;
-    }
-    .atalhos {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .atalhos button {
-      flex: 1;
-      padding: 8px;
-      background: rgba(7, 19, 36, 0.85);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.82rem;
-      font-weight: 600;
-    }
-    .atalhos button:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* Estilo da Aba Somador */
-    .linha-add {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    .linha-add input {
-      width: 80px;
-      margin-bottom: 0;
-      text-align: center;
-    }
-    .btn-add {
-      flex: 1;
-      background: var(--accent);
-      color: #071324;
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      cursor: pointer;
-      padding: 11px;
-    }
-    .btn-add:hover { opacity: 0.9; }
-    .lista-soma {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
-      max-height: 180px;
-      overflow-y: auto;
-    }
-    .lista-soma li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(7, 19, 36, 0.75);
-      border: 1px solid var(--border);
-      padding: 9px 12px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-      font-size: 0.85rem;
-    }
-    .item-info { flex: 1; padding-right: 8px; }
-    .item-qtd { color: var(--accent); font-weight: 700; }
-    .btn-remover {
-      background: transparent;
-      border: 1px solid rgba(248, 113, 113, 0.4);
-      color: var(--danger);
-      border-radius: 6px;
-      padding: 4px 8px;
-      cursor: pointer;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-    .btn-limpar {
-      background: transparent;
-      border: none;
-      color: var(--muted);
-      text-decoration: underline;
-      font-size: 0.78rem;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-
-    .resultado {
-      background: var(--accent-bg);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 12px;
-      padding: 18px;
-      text-align: center;
-    }
-    .detalhe-linha { font-size: 0.86rem; color: var(--muted); margin-bottom: 4px; }
-    .alerta-diff {
-      display: inline-block;
-      background: rgba(250, 204, 21, 0.16);
-      color: #fde047;
-      font-size: 0.76rem;
-      padding: 3px 8px;
-      border-radius: 6px;
-      margin: 4px 0;
-    }
-    .valor-total { font-size: 2rem; font-weight: 800; color: var(--accent); margin: 6px 0; }
-    .data-att { font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tarifas Vale do Paraíba</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#071324;color:#f8fafc;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;padding:16px}
+.bg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:650px;max-width:95vw;opacity:.12;pointer-events:none}
+.card{position:relative;background:rgba(15,31,56,.92);border:1px solid #1e3a63;max-width:460px;width:100%;padding:24px;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.topo{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.badge{background:rgba(56,189,248,.15);color:#38bdf8;font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px}
+h1{font-size:21px;margin:0 0 4px}
+.sub{font-size:13px;color:#cbd5e1;margin:0 0 16px}
+.tabs{display:flex;gap:6px;background:#071324;padding:5px;border-radius:10px;border:1px solid #1e3a63;margin-bottom:18px}
+.tab{flex:1;padding:8px 4px;background:0;color:#cbd5e1;border:0;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer}
+.tab.active{background:#38bdf8;color:#071324}
+.pane{display:none}.pane.active{display:block}
+label{display:block;font-size:13px;color:#cbd5e1;margin-bottom:5px}
+select,input{width:100%;padding:10px;background:#071324;color:#fff;border:1px solid #1e3a63;border-radius:9px;font-size:14px;margin-bottom:13px;box-sizing:border-box}
+.row{display:flex;gap:8px;margin-bottom:14px}
+.btn{flex:1;padding:9px;background:#071324;color:#fff;border:1px solid #1e3a63;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600}
+.btn-blue{background:#38bdf8;color:#071324;border:0;font-weight:700}
+.box{background:rgba(56,189,248,.14);border:1px solid rgba(56,189,248,.35);border-radius:12px;padding:16px;text-align:center}
+.total{font-size:30px;font-weight:800;color:#38bdf8;margin:6px 0}
+.info{font-size:13px;color:#cbd5e1}
+.diff{display:inline-block;background:rgba(250,204,21,.18);color:#fde047;font-size:12px;padding:3px 8px;border-radius:6px;margin-top:4px}
+ul{list-style:none;padding:0;margin:0 0 14px;max-height:160px;overflow-y:auto}
+li{display:flex;justify-content:space-between;align-items:center;background:#071324;border:1px solid #1e3a63;padding:8px 10px;border-radius:8px;margin-bottom:6px;font-size:13px}
+.del{background:0;border:1px solid #f87171;color:#f87171;border-radius:6px;padding:3px 7px;cursor:pointer;font-weight:700}
+</style>
 </head>
 <body>
+<svg class="bg" viewBox="0 0 400 220" fill="#fff"><polygon points="200,12 193,42 193,155 207,155 207,42"/><rect x="172" y="155" width="56" height="7" rx="3"/><rect x="195" y="162" width="10" height="32" rx="2"/><circle cx="200" cy="200" r="8"/><path d="M188,125C140,115 70,85 15,48 35,75 75,95 125,108 75,102 40,92 22,82 48,104 88,118 135,125 92,124 60,118 42,112 68,128 105,137 148,140 112,142 84,140 68,136 95,148 135,152 188,146Z"/><path d="M212,125C260,115 330,85 385,48 365,75 325,95 275,108 325,102 360,92 378,82 352,104 312,118 265,125 308,124 340,118 358,112 332,128 295,137 252,140 288,142 316,140 332,136 305,148 265,152 212,146Z"/></svg>
 
-  <!-- Gládio Alado em vetor embutido no fundo -->
-  <svg class="bg-gladio" viewBox="0 0 400 220" fill="currentColor" xmlns="http://w3.org">
-    <polygon points="200,12 193,42 193,155 207,155 207,42"/>
-    <rect x="172" y="155" width="56" height="7" rx="3"/>
-    <rect x="195" y="162" width="10" height="32" rx="2"/>
-    <circle cx="200" cy="200" r="8"/>
-    <path d="M188,125 C140,115 70,85 15,48 C35,75 75,95 125,108 C75,102 40,92 22,82 C48,104 88,118 135,125 C92,124 60,118 42,112 C68,128 105,137 148,140 C112,142 84,140 68,136 C95,148 135,152 188,146 Z"/>
-    <path d="M212,125 C260,115 330,85 385,48 C365,75 325,95 275,108 C325,102 360,92 378,82 C352,104 312,118 265,125 C308,124 340,118 358,112 C332,128 295,137 252,140 C288,142 316,140 332,136 C305,148 265,152 212,146 Z"/>
-  </svg>
+<div class="card">
+  <div class="topo">
+    <span class="badge">EMTU • Pássaro Marron</span>
+    <svg width="42" viewBox="0 0 400 220" fill="#38bdf8"><polygon points="200,12 193,42 193,155 207,155 207,42"/><rect x="172" y="155" width="56" height="7" rx="3"/><rect x="195" y="162" width="10" height="32" rx="2"/><circle cx="200" cy="200" r="8"/><path d="M188,125C140,115 70,85 15,48 35,75 75,95 125,108 75,102 40,92 22,82 48,104 88,118 135,125 92,124 60,118 42,112 68,128 105,137 148,140 112,142 84,140 68,136 95,148 135,152 188,146Z"/><path d="M212,125C260,115 330,85 385,48 365,75 325,95 275,108 325,102 360,92 378,82 352,104 312,118 265,125 308,124 340,118 358,112 332,128 295,137 252,140 288,142 316,140 332,136 305,148 265,152 212,146Z"/></svg>
+  </div>
+  <h1>Consulta de Tarifas</h1>
+  <p class="sub">Vale do Paraíba • Atualização automática</p>
 
-  <div class="card">
-    <div class="header-topo">
-      <span class="badge">EMTU • Pássaro Marron</span>
-      <svg class="mini-gladio" viewBox="0 0 400 220" fill="currentColor" xmlns="http://w3.org">
-        <polygon points="200,12 193,42 193,155 207,155 207,42"/>
-        <rect x="172" y="155" width="56" height="7" rx="3"/>
-        <rect x="195" y="162" width="10" height="32" rx="2"/>
-        <circle cx="200" cy="200" r="8"/>
-        <path d="M188,125 C140,115 70,85 15,48 C35,75 75,95 125,108 C75,102 40,92 22,82 C48,104 88,118 135,125 C92,124 60,118 42,112 C68,128 105,137 148,140 C112,142 84,140 68,136 C95,148 135,152 188,146 Z"/>
-        <path d="M212,125 C260,115 330,85 385,48 C365,75 325,95 275,108 C325,102 360,92 378,82 C352,104 312,118 265,125 C308,124 340,118 358,112 C332,128 295,137 252,140 C288,142 316,140 332,136 C305,148 265,152 212,146 Z"/>
-      </svg>
+  <div class="tabs">
+    <button class="tab active" onclick="aba('p1',this)">Rápida</button>
+    <button class="tab" onclick="aba('p2',this)">Mês (22d)</button>
+    <button class="tab" onclick="aba('p3',this)">Somar Tarifas</button>
+  </div>
+
+  <div id="p1" class="pane active">
+    <label>Trecho:</label><select id="t1"></select>
+    <label>Passagens:</label><input type="number" id="q1" value="1" min="1">
+    <div class="row">
+      <button class="btn" onclick="q1.value=1;calc1()">Ida (1)</button>
+      <button class="btn" onclick="q1.value=2;calc1()">Ida/Volta (2)</button>
+      <button class="btn" onclick="q1.value=44;calc1()">22 Dias (44)</button>
     </div>
-
-    <h1>Consulta de Tarifas</h1>
-    <p class="sub">Vale do Paraíba • Atualização automática</p>
-
-    <!-- Botões das 3 Abas -->
-    <div class="tabs">
-      <button type="button" class="tab-btn active" onclick="abrirAba('simples', this)">Rápida</button>
-      <button type="button" class="tab-btn" onclick="abrirAba('mensal', this)">Mês (22d)</button>
-      <button type="button" class="tab-btn" onclick="abrirAba('somar', this)">Somar Tarifas</button>
+    <div class="box">
+      <div class="info" id="u1">Unitária: R$ 0,00</div>
+      <div class="total" id="r1">R$ 0,00</div>
+      <div class="info" id="d1">Carregando...</div>
     </div>
+  </div>
 
-    <!-- ABA 1: Consulta Rápida -->
-    <div id="aba-simples" class="tab-content active">
-      <label for="trecho">Trecho / Linha:</label>
-      <select id="trecho"></select>
-
-      <label for="qtd">Quantidade de passagens:</label>
-      <input type="number" id="qtd" value="1" min="1" max="100">
-
-      <div class="atalhos">
-        <button type="button" onclick="setQtd(1)">Só Ida (1)</button>
-        <button type="button" onclick="setQtd(2)">Ida e Volta (2)</button>
-        <button type="button" onclick="setQtd(44)">22 Dias (44)</button>
-      </div>
-
-      <div class="resultado">
-        <div class="detalhe-linha" id="unitario">Tarifa unitária: R$ 0,00</div>
-        <div class="valor-total" id="total">R$ 0,00</div>
-        <div class="data-att" id="atualizacao">Carregando dados...</div>
-      </div>
+  <div id="p2" class="pane">
+    <label>Trecho IDA:</label><select id="ti"></select>
+    <label>Trecho VOLTA (se diferente):</label><select id="tv"></select>
+    <label>Dias úteis:</label><input type="number" id="du" value="22" min="1" max="31">
+    <div class="box">
+      <div class="info" id="u2">Ida + Volta</div>
+      <div id="df"></div>
+      <div class="total" id="r2">R$ 0,00</div>
+      <div class="info" id="d2">22 dias úteis</div>
     </div>
+  </div>
 
-    <!-- ABA 2: Mês Útil (22 dias) -->
-    <div id="aba-mensal" class="tab-content">
-      <label for="trecho-ida">Trecho de IDA:</label>
-      <select id="trecho-ida"></select>
-
-      <label for="trecho-volta">Trecho de VOLTA (selecione se for diferente):</label>
-      <select id="trecho-volta"></select>
-
-      <label for="dias-uteis">Dias úteis no mês (padrão: 22):</label>
-      <input type="number" id="dias-uteis" value="22" min="1" max="31">
-
-      <div class="resultado">
-        <div class="detalhe-linha" id="resumo-diario">Ida: R$ 0,00 + Volta: R$ 0,00 = R$ 0,00/dia</div>
-        <div id="aviso-diferenca"></div>
-        <div class="valor-total" id="total-mensal">R$ 0,00</div>
-        <div class="data-att" id="atualizacao-mensal">Baseado em 22 dias úteis (44 viagens)</div>
-      </div>
+  <div id="p3" class="pane">
+    <label>Adicionar trecho na soma:</label><select id="ts"></select>
+    <div class="row">
+      <input type="number" id="qs" value="1" min="1" style="width:75px;margin:0;text-align:center">
+      <button class="btn btn-blue" onclick="addSoma()">+ Adicionar</button>
     </div>
+    <ul id="lista"></ul>
+    <div class="box">
+      <div class="info" id="u3">0 trechos na soma</div>
+      <div class="total" id="r3">R$ 0,00</div>
+      <button class="btn" style="margin-top:8px;padding:5px 12px" onclick="soma=[];renderSoma()">Limpar</button>
+    </div>
+  </div>
+</div>
 
-    <!-- ABA 3: Somador de Várias Tarifas -->
-    <div id="aba-somar" class="tab-content">
-      <label for="trecho-soma">Escolha o trecho para adicionar:</label>
-      <select id="trecho-soma"></select>
-
-      <label for="qtd-soma">Quantidade e adicionar na soma:</label>
-      <div class="linha-add">
-        <input type="number" id="qtd-soma" value="1" min="1" max="200" title="Quantidade">
-        <button type="button" class="btn-add" onclick="adicionarNaSoma()">+ Adicionar à Soma</button>
-      </div>
+<script>
+let dados={},soma=[];
+const fmt=v=>'R$ '+v.toFixed(2).replace('.',',');
+function aba(id,el){
+  document.querySelectorAll('.pane,.tab').forEach(x=>x.classList.remove('active'));
+  document.getElementById(id).classList.add('active');el.classList.add('active');
+}
+async function init(){
+  try{
+    const r=await fetch('tarifas_vale.json?v='+Date.now());
+    dados=await r.json();
+    ['t1','ti','tv','ts'].forEach(id=>{
+      const s=document.getElementById(id);s.innerHTML='';
+      Object.keys(dados).forEach(k=>{
+        const o=document.createElement('option');
+        o.value=k;o.textContent=`${k} (${fmt(dados[k].valor)})`;s.appendChild(o);
+      });
+    });
+    calc1();calc2();
+  }catch(e){d1.textContent='Erro ao carregar tarifas_vale.json';}
+}
+function calc1(){
+  const it=dados[t1.value];if(!it)return;
+  u1.textContent='Unitária: '+fmt(it.valor);
+  r1.textContent=fmt(it.valor*(parseInt(q1.value)||1));
+  d1.textContent='Atualizado em: '+it.atualizado_em;
+}
+function calc2(){
+  const a=dados[ti.value],b=dados[tv.value],dias=parseInt(du.value)||22;
+  if(!a||!b)return;
+  u2.textContent=`Ida ${fmt(a.valor)} + Volta ${fmt(b.valor)} = ${fmt(a.valor+b.valor)}/dia`;
+  df.innerHTML=a.valor!==b.valor?`<span class="diff">Diferença de ${fmt(Math.abs(a.valor-b.valor))} por trecho</span>`:'';
+  r2.textContent=fmt((a.valor+b.valor)*dias);
+  d2.textContent=`${dias} dias úteis (${dias*2} passagens)`;
+}
+function addSoma(){
+  const it=dados[ts.value],q=parseInt(qs.value)||1;if(!it)return;
+  soma.push({n:ts.value,q,v:it.valor*q});renderSoma();
+}
+function renderSoma(){
+  lista.innerHTML='';let tot=0;
+  soma.forEach((x,i)=>{
+    tot+=x.v;
+    lista.innerHTML+=`<li><span><b>${x.q}x</b> ${x.n} (${fmt(x.v)})</span><button class="del" onclick="soma.splice(${i},1);renderSoma()">X</button></li>`;
+  });
+  u3.textContent=soma.length+' item(ns) somado(s)';
+  r3.textContent=fmt(tot);
+}
+t1.onchange=calc1;q1.oninput=calc1;
+ti.onchange=()=>{tv.value=ti.value;calc2()};tv.onchange=calc2;du.oninput=calc2;
+init();
+</script>
+</body>
+</html>
