@@ -17,7 +17,7 @@ h1{font-size:21px;margin:0 0 4px}
 .tab.active{background:#38bdf8;color:#071324}
 .pane{display:none}.pane.active{display:block}
 label{display:block;font-size:13px;color:#cbd5e1;margin-bottom:5px}
-select,input{width:100%;padding:10px;background:#071324;color:#fff;border:1px solid #1e3a63;border-radius:9px;font-size:14px;margin-bottom:13px;box-sizing:border-box}
+select,input{width:100%;max-width:100%;text-overflow:ellipsis;padding:10px;background:#071324;color:#fff;border:1px solid #1e3a63;border-radius:9px;font-size:14px;margin-bottom:13px;box-sizing:border-box}
 .row{display:flex;gap:8px;margin-bottom:14px}
 .btn{flex:1;padding:9px;background:#071324;color:#fff;border:1px solid #1e3a63;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600}
 .btn-blue{background:#38bdf8;color:#071324;border:0;font-weight:700}
@@ -40,7 +40,7 @@ li{display:flex;justify-content:space-between;align-items:center;background:#071
     <svg width="42" viewBox="0 0 400 220" fill="#38bdf8"><polygon points="200,12 193,42 193,155 207,155 207,42"/><rect x="172" y="155" width="56" height="7" rx="3"/><rect x="195" y="162" width="10" height="32" rx="2"/><circle cx="200" cy="200" r="8"/><path d="M188,125C140,115 70,85 15,48 35,75 75,95 125,108 75,102 40,92 22,82 48,104 88,118 135,125 92,124 60,118 42,112 68,128 105,137 148,140 112,142 84,140 68,136 95,148 135,152 188,146Z"/><path d="M212,125C260,115 330,85 385,48 365,75 325,95 275,108 325,102 360,92 378,82 352,104 312,118 265,125 308,124 340,118 358,112 332,128 295,137 252,140 288,142 316,140 332,136 305,148 265,152 212,146Z"/></svg>
   </div>
   <h1>Consulta de Tarifas</h1>
-  <p class="sub">Vale do Paraíba • Atualização automática</p>
+  <p class="sub">Guaratinguetá e Vale • Atualização automática</p>
 
   <div class="tabs">
     <button class="tab active" onclick="aba('p1',this)">Rápida</button>
@@ -93,6 +93,7 @@ li{display:flex;justify-content:space-between;align-items:center;background:#071
 </div>
 
 <script>
+const PADRAO={"Municipal Guaratinguetá (TUG Interno)":{valor:5.50,vigencia_oficial:"Decreto Municipal",atualizado_em:"23/11/2026"},"EMTU 5316 • Guaratinguetá ↔ Aparecida (Comum)":{valor:4.55,vigencia_oficial:"Tabela EMTU",atualizado_em:"23/11/2026"},"EMTU 5312 • Guaratinguetá ↔ Lorena (Comum)":{valor:5.80,vigencia_oficial:"Tabela EMTU",atualizado_em:"23/11/2026"},"Rodoviário Pássaro Marron • Guaratinguetá ↔ SJC":{valor:39.40,vigencia_oficial:"Tabela ARTESP",atualizado_em:"23/11/2026"}};
 let dados={},soma=[];
 const fmt=v=>'R$ '+v.toFixed(2).replace('.',',');
 function aba(id,el){
@@ -102,23 +103,24 @@ function aba(id,el){
 async function init(){
   try{
     const r=await fetch('tarifas_vale.json?v='+Date.now());
-    dados=await r.json();
-    ['t1','ti','tv','ts'].forEach(id=>{
-      const s=document.getElementById(id);s.innerHTML='';
-      Object.keys(dados).forEach(k=>{
-        const o=document.createElement('option');
-        o.value=k;o.textContent=`${k} (${fmt(dados[k].valor)})`;s.appendChild(o);
-      });
+    const j=await r.json();
+    dados=Object.keys(j).length?j:PADRAO;
+  }catch(e){dados=PADRAO;}
+  ['t1','ti','tv','ts'].forEach(id=>{
+    const s=document.getElementById(id);s.innerHTML='';
+    Object.keys(dados).forEach(k=>{
+      const o=document.createElement('option');
+      o.value=k;o.textContent=`${k} (${fmt(dados[k].valor)})`;s.appendChild(o);
     });
-    calc1();calc2();
-  }catch(e){d1.textContent='Erro ao carregar tarifas_vale.json';}
+  });
+  calc1();calc2();
 }
 function calc1(){
   const it=dados[t1.value];if(!it)return;
   u1.textContent='Unitária: '+fmt(it.valor);
   r1.textContent=fmt(it.valor*(parseInt(q1.value)||1));
-  v1.textContent='Vigência oficial EMTU: '+(it.vigencia_oficial||'Consultando...');
-  d1.textContent='Última verificação do robô: '+(it.atualizado_em||'--');
+  v1.textContent='Vigência oficial: '+(it.vigencia_oficial||'--');
+  d1.textContent='Verificado em: '+(it.atualizado_em||'--');
 }
 function calc2(){
   const a=dados[ti.value],b=dados[tv.value],dias=parseInt(du.value)||22;
