@@ -1,162 +1,38 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tarifas Guaratinguetá e Vale</title>
-<style>
-body{font-family:system-ui,sans-serif;background:#071324;color:#f8fafc;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;padding:16px}
-.bg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:650px;max-width:95vw;opacity:.12;pointer-events:none}
-.card{position:relative;background:rgba(15,31,56,.92);border:1px solid #1e3a63;max-width:480px;width:100%;padding:24px;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
-.topo{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.badge{background:rgba(56,189,248,.15);color:#38bdf8;font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px}
-h1{font-size:21px;margin:0 0 4px}
-.sub{font-size:13px;color:#cbd5e1;margin:0 0 14px}
-.tabs{display:flex;gap:6px;background:#071324;padding:5px;border-radius:10px;border:1px solid #1e3a63;margin-bottom:16px}
-.tab{flex:1;padding:8px 4px;background:0;color:#cbd5e1;border:0;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer}
-.tab.active{background:#38bdf8;color:#071324}
-.pane{display:none}.pane.active{display:block}
-label{display:block;font-size:13px;color:#cbd5e1;margin-bottom:5px}
-select,input{width:100%;max-width:100%;text-overflow:ellipsis;padding:10px;background:#071324;color:#fff;border:1px solid #1e3a63;border-radius:9px;font-size:14px;margin-bottom:12px;box-sizing:border-box}
-.busca{border-color:#38bdf8;background:rgba(7,19,36,.95)}
-.row{display:flex;gap:8px;margin-bottom:14px}
-.btn{flex:1;padding:9px;background:#071324;color:#fff;border:1px solid #1e3a63;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600}
-.btn-blue{background:#38bdf8;color:#071324;border:0;font-weight:700}
-.box{background:rgba(56,189,248,.14);border:1px solid rgba(56,189,248,.35);border-radius:12px;padding:16px;text-align:center}
-.total{font-size:30px;font-weight:800;color:#38bdf8;margin:6px 0}
-.info{font-size:13px;color:#cbd5e1}
-.vig{font-size:12px;color:#93c5fd;margin-top:6px;font-weight:600}
-.diff{display:inline-block;background:rgba(250,204,21,.18);color:#fde047;font-size:12px;padding:3px 8px;border-radius:6px;margin-top:4px}
-ul{list-style:none;padding:0;margin:0 0 14px;max-height:160px;overflow-y:auto}
-li{display:flex;justify-content:space-between;align-items:center;background:#071324;border:1px solid #1e3a63;padding:8px 10px;border-radius:8px;margin-bottom:6px;font-size:13px}
-.del{background:0;border:1px solid #f87171;color:#f87171;border-radius:6px;padding:3px 7px;cursor:pointer;font-weight:700}
-</style>
-</head>
-<body>
-<svg class="bg" viewBox="0 0 400 220" fill="#fff"><polygon points="200,12 193,42 193,155 207,155 207,42"/><rect x="172" y="155" width="56" height="7" rx="3"/><rect x="195" y="162" width="10" height="32" rx="2"/><circle cx="200" cy="200" r="8"/><path d="M188,125C140,115 70,85 15,48 35,75 75,95 125,108 75,102 40,92 22,82 48,104 88,118 135,125 92,124 60,118 42,112 68,128 105,137 148,140 112,142 84,140 68,136 95,148 135,152 188,146Z"/><path d="M212,125C260,115 330,85 385,48 365,75 325,95 275,108 325,102 360,92 378,82 352,104 312,118 265,125 308,124 340,118 358,112 332,128 295,137 252,140 288,142 316,140 332,136 305,148 265,152 212,146Z"/></svg>
-
-<div class="card">
-  <div class="topo">
-    <span class="badge">TUG • EMTU • Pássaro Marron</span>
-    <svg width="42" viewBox="0 0 400 220" fill="#38bdf8"><polygon points="200,12 193,42 193,155 207,155 207,42"/><rect x="172" y="155" width="56" height="7" rx="3"/><rect x="195" y="162" width="10" height="32" rx="2"/><circle cx="200" cy="200" r="8"/><path d="M188,125C140,115 70,85 15,48 35,75 75,95 125,108 75,102 40,92 22,82 48,104 88,118 135,125 92,124 60,118 42,112 68,128 105,137 148,140 112,142 84,140 68,136 95,148 135,152 188,146Z"/><path d="M212,125C260,115 330,85 385,48 365,75 325,95 275,108 325,102 360,92 378,82 352,104 312,118 265,125 308,124 340,118 358,112 332,128 295,137 252,140 288,142 316,140 332,136 305,148 265,152 212,146Z"/></svg>
-  </div>
-  <h1>Tarifas Guaratinguetá</h1>
-  <p class="sub">Linhas internas e intermunicipais • Atualização diária</p>
-
-  <input type="text" id="filtro" class="busca" placeholder="Filtrar linha ou cidade (ex: TUG, SJC, Lorena, L03)...">
-
-  <div class="tabs">
-    <button class="tab active" onclick="aba('p1',this)">Rápida</button>
-    <button class="tab" onclick="aba('p2',this)">Mês (22d)</button>
-    <button class="tab" onclick="aba('p3',this)">Somar Tarifas</button>
-  </div>
-
-  <div id="p1" class="pane active">
-    <label>Linha / Trecho:</label><select id="t1"></select>
-    <label>Passagens:</label><input type="number" id="q1" value="1" min="1">
-    <div class="row">
-      <button class="btn" onclick="q1.value=1;calc1()">Ida (1)</button>
-      <button class="btn" onclick="q1.value=2;calc1()">Ida/Volta (2)</button>
-      <button class="btn" onclick="q1.value=44;calc1()">22 Dias (44)</button>
-    </div>
-    <div class="box">
-      <div class="info" id="u1">Unitária: R$ 0,00</div>
-      <div class="total" id="r1">R$ 0,00</div>
-      <div class="vig" id="v1">Última atualização oficial: --</div>
-      <div class="info" id="d1">Verificado pelo robô: --</div>
-    </div>
-  </div>
-
-  <div id="p2" class="pane">
-    <label>Trecho IDA:</label><select id="ti"></select>
-    <label>Trecho VOLTA (automático ou selecione):</label><select id="tv"></select>
-    <label>Dias úteis:</label><input type="number" id="du" value="22" min="1" max="31">
-    <div class="box">
-      <div class="info" id="u2">Ida + Volta</div>
-      <div id="df"></div>
-      <div class="total" id="r2">R$ 0,00</div>
-      <div class="vig" id="v2">Atualização oficial: --</div>
-      <div class="info" id="d2">22 dias úteis</div>
-    </div>
-  </div>
-
-  <div id="p3" class="pane">
-    <label>Adicionar linha na soma:</label><select id="ts"></select>
-    <div class="row">
-      <input type="number" id="qs" value="1" min="1" style="width:75px;margin:0;text-align:center">
-      <button class="btn btn-blue" onclick="addSoma()">+ Adicionar</button>
-    </div>
-    <ul id="lista"></ul>
-    <div class="box">
-      <div class="info" id="u3">0 itens na soma</div>
-      <div class="total" id="r3">R$ 0,00</div>
-      <button class="btn" style="margin-top:8px;padding:5px 12px" onclick="soma=[];renderSoma()">Limpar</button>
-    </div>
-  </div>
-</div>
-
-<script>
-let dados={},soma=[];
-const fmt=v=>'R$ '+v.toFixed(2).replace('.',',');
-function aba(id,el){
-  document.querySelectorAll('.pane,.tab').forEach(x=>x.classList.remove('active'));
-  document.getElementById(id).classList.add('active');el.classList.add('active');
-}
 function popularSelects(termo=''){
   const f=termo.toLowerCase();
-  const chaves=Object.keys(dados).filter(k=>k.toLowerCase().includes(f));
+  const chaves=Object.keys(dados)
+    .filter(k=>k.toLowerCase().includes(f))
+    .sort((a,b)=>a.localeCompare(b,'pt-BR'));
+
+  const grupos=[
+    {titulo:'1. Linhas Internas (Guaratinguetá)',itens:chaves.filter(k=>k.startsWith('INTERNA'))},
+    {titulo:'2. Trechos de IDA (Ordem Alfabética)',itens:chaves.filter(k=>k.startsWith('IDA •'))},
+    {titulo:'3. Trechos de VOLTA (Ordem Alfabética)',itens:chaves.filter(k=>k.startsWith('VOLTA •'))},
+    {titulo:'Outros Trechos',itens:chaves.filter(k=>!k.startsWith('INTERNA')&&!k.startsWith('IDA •')&&!k.startsWith('VOLTA •'))}
+  ];
+
   ['t1','ti','tv','ts'].forEach(id=>{
-    const s=document.getElementById(id),ant=s.value;s.innerHTML='';
-    chaves.forEach(k=>{
-      const o=document.createElement('option');
-      o.value=k;o.textContent=`${k} (${fmt(dados[k].valor)})`;s.appendChild(o);
+    const s=document.getElementById(id),ant=s.value;
+    s.innerHTML='';
+    grupos.forEach(g=>{
+      if(g.itens.length>0){
+        const og=document.createElement('optgroup');
+        og.label=g.titulo;
+        g.itens.forEach(k=>{
+          const o=document.createElement('option');
+          o.value=k;
+          o.textContent=`${k} (${fmt(dados[k].valor)})`;
+          og.appendChild(o);
+        });
+        s.appendChild(og);
+      }
     });
     if(chaves.includes(ant))s.value=ant;
   });
-  if(ti.value&&!termo){const vc=ti.value.replace('IDA •','VOLTA •');if(dados[vc])tv.value=vc;}
+
+  if(ti.value&&!termo){
+    const vc=ti.value.replace('IDA •','VOLTA •');
+    if(dados[vc])tv.value=vc;
+  }
   calc1();calc2();
 }
-async function init(){
-  try{
-    const r=await fetch('tarifas_vale.json?v='+Date.now());
-    dados=await r.json();
-    popularSelects();
-  }catch(e){d1.textContent='Erro ao carregar tarifas_vale.json';}
-}
-function calc1(){
-  const it=dados[t1.value];if(!it)return;
-  u1.textContent='Tarifa unitária: '+fmt(it.valor);
-  r1.textContent=fmt(it.valor*(parseInt(q1.value)||1));
-  v1.textContent='Última atualização oficial: '+(it.vigencia_oficial||'--');
-  d1.textContent='Verificado pelo robô em: '+(it.atualizado_em||'--');
-}
-function calc2(){
-  const a=dados[ti.value],b=dados[tv.value],dias=parseInt(du.value)||22;
-  if(!a||!b)return;
-  u2.textContent=`Ida ${fmt(a.valor)} + Volta ${fmt(b.valor)} = ${fmt(a.valor+b.valor)}/dia`;
-  df.innerHTML=a.valor!==b.valor?`<span class="diff">Volta com valor diferente (diferença de ${fmt(Math.abs(a.valor-b.valor))})</span>`:'';
-  r2.textContent=fmt((a.valor+b.valor)*dias);
-  v2.textContent=`Atualização: Ida (${a.vigencia_oficial||'--'}) • Volta (${b.vigencia_oficial||'--'})`;
-  d2.textContent=`${dias} dias úteis (${dias*2} passagens)`;
-}
-function addSoma(){
-  const it=dados[ts.value],q=parseInt(qs.value)||1;if(!it)return;
-  soma.push({n:ts.value,q,v:it.valor*q});renderSoma();
-}
-function renderSoma(){
-  lista.innerHTML='';let tot=0;
-  soma.forEach((x,i)=>{
-    tot+=x.v;
-    lista.innerHTML+=`<li><span><b>${x.q}x</b> ${x.n} (${fmt(x.v)})</span><button class="del" onclick="soma.splice(${i},1);renderSoma()">X</button></li>`;
-  });
-  u3.textContent=soma.length+' item(ns) somado(s)';
-  r3.textContent=fmt(tot);
-}
-filtro.oninput=()=>popularSelects(filtro.value);
-t1.onchange=calc1;q1.oninput=calc1;
-ti.onchange=()=>{const vc=ti.value.replace('IDA •','VOLTA •');if(dados[vc])tv.value=vc;calc2()};
-tv.onchange=calc2;du.oninput=calc2;
-init();
-</script>
-</body>
-</html>
