@@ -1,81 +1,57 @@
 {
-  "Aparecida ↔ Guaratinguetá (Comum - Linha 5316)": {
-    "atualizado_em": "2026-11-23",
-    "valor": 4.55
+  "Municipal Guaratinguetá (TUG Interno)": {
+    "valor": 5.50,
+    "vigencia_oficial": "Decreto Municipal",
+    "atualizado_em": "23/11/2026"
   },
-  "EMTU 5311 • Guaratingueta (Terminal Rodoviario De Guaratingueta)/ Pindamonhangaba (Terminal Rodoviario De Pindamonhangaba)": {
-    "atualizado_em": "23/11/2026",
-    "valor": 15.85,
-    "vigencia_oficial": "Tabela EMTU/ARTESP"
-  },
-  "EMTU 5311EX1 • Guaratingueta (Terminal Rodoviario De Guaratingueta)/ Pindamonhangaba (Centro)": {
-    "atualizado_em": "23/11/2026",
-    "valor": 15.85,
-    "vigencia_oficial": "Tabela EMTU/ARTESP"
-  },
-  "EMTU 5312 • Lorena (Cruz)/ Guaratingueta (Terminal Rodoviario De Guaratingueta)": {
-    "atualizado_em": "23/11/2026",
-    "valor": 5.8,
-    "vigencia_oficial": "Tabela EMTU/ARTESP"
-  },
-  "EMTU 5316 • Aparecida (Centro)/ Guaratingueta (Centro)": {
-    "atualizado_em": "23/11/2026",
+  "EMTU 5316 • Guaratinguetá ↔ Aparecida (Comum)": {
     "valor": 4.55,
-    "vigencia_oficial": "Tabela EMTU/ARTESP"
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
   },
-  "EMTU 5318 • Potim (Loteamento Dos Vieiras)/ Guaratingueta (Terminal Rodoviario De Guaratingueta)": {
-    "atualizado_em": "23/11/2026",
-    "valor": 5.5,
-    "vigencia_oficial": "Tabela EMTU/ARTESP"
+  "EMTU 5312 • Guaratinguetá ↔ Lorena (Comum)": {
+    "valor": 5.80,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
   },
-  "EMTU 5319 • Guaratinguetá ↔ Cunha (Rodov. São José)": {
-    "atualizado_em": "23/11/2026",
-    "valor": 19.2,
-    "vigencia_oficial": "Tabela ARTESP 2026"
+  "Seletivo 5305 • Guaratinguetá ↔ Aparecida": {
+    "valor": 5.45,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
   },
-  "EMTU 5402 • Bananal (Terminal Rodoviario Aquino Carvalho Dos Santos)/ Guaratingueta (Terminal Rodoviario De Guaratingueta)": {
-    "atualizado_em": "23/11/2026",
-    "valor": 57.2,
-    "vigencia_oficial": "Tabela EMTU/ARTESP"
+  "Seletivo 5305 • Guaratinguetá ↔ Lorena": {
+    "valor": 8.15,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
   },
-  "Guaratinguetá ↔ Aparecida (Seletivo - Linha 5305)": {
-    "atualizado_em": "2026-11-23",
-    "valor": 5.45
+  "EMTU 5311 • Guaratinguetá ↔ Pindamonhangaba": {
+    "valor": 15.85,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
   },
-  "Guaratinguetá ↔ São José dos Campos (Rodoviário)": {
-    "atualizado_em": "2026-11-23",
-    "valor": 39.4
+  "EMTU 5319 • Guaratinguetá ↔ Cunha": {
+    "valor": 19.20,
+    "vigencia_oficial": "Tabela ARTESP",
+    "atualizado_em": "23/11/2026"
   },
-  "Lorena ↔ Guaratinguetá (Comum - Linha 5312)": {
-    "atualizado_em": "2026-11-23",
-    "valor": 5.8
+  "EMTU 5301 • Guaratinguetá ↔ Cruzeiro": {
+    "valor": 21.00,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
   },
-  "Lorena ↔ Guaratinguetá (Seletivo - Linha 5305)": {
-    "atualizado_em": "2026-11-23",
-    "valor": 44.65
-  },
-  "Lorena ↔ São José dos Campos (Seletivo - Linha 5305)": {
-    "atualizado_em": "2026-11-23",
-    "valor": 44.65
-  },
-  "Municipal Guaratinguetá (TUG - Urbano Interno)": {
-    "atualizado_em": "23/11/2026",
-    "valor": 5.5,
-    "vigencia_oficial": "01/02/2024"
+  "EMTU 5306 • Guaratinguetá ↔ Taubaté": {
+    "valor": 26.90,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
   },
   "Rodoviário Pássaro Marron • Guaratinguetá ↔ SJC": {
-    "atualizado_em": "23/11/2026",
-    "valor": 39.4,
-    "vigencia_oficial": "Tabela ARTESP 2026"
+    "valor": 39.40,
+    "vigencia_oficial": "Tabela ARTESP",
+    "atualizado_em": "23/11/2026"
   },
-  "Seletivo 5305 • Linha: 5305 Lorena  Sao Jose Dos Campos  Serviço De Transporte : Seletivo Empresa Operadora: Passaro Marron Terminal Inicial : Terminal Rodoviario De Lorena Terminal Final : Terminal Rodoviario Frederico Ozanam Serviço : Seletivo Quadro De Tarifas Tarifa Autorizada: R$ 44,65 Quadro De Seccionamentos Seccionamentos Tarifa 1 - Lorena  - Guaratingueta  R$ 8,15 2 - Lorena  - Aparecida  R$ 10,05 3 - Lorena  - Roseira - Rod. Pres. Dutra - Km 77,500 R$ 13,60 4 - Lorena  - Taubate  R$ 26,90 5 - Lorena  - Cacapava  R$ 35,85 6 - Guaratingueta  - Aparecida  R$ 5,45 7 - Guaratingueta  - Roseira  R$ 6,35 8 - Guaratingueta  - Taubate  R$ 19,50 9 - Guaratingueta  - Cacapava  R$ 26,70 10 - Guaratingueta  - São Jose Dos Campos  R$ 36,40 11 - Aparecida  - Roseira  R$ 5,45 12 - Aparecida  - Taubate  R$ 17,60 13 - Aparecida  - Cacapava  R$ 24,85 14 - Aparecida  - Sao Jose Dos Campos  R$ 34,30 15 - Roseira  - Taubate  R$ 11,85 16 - Roseira  - Cacapava  R$ 21,20 17 - Roseira  - Sao Jose Dos Campos  R$ 28,60 18 - Taubate  - Cacapava  R$ 8,15 19 - Taubate  - Sao Jose Dos Campos  R$ 15,80 20 - Cacapava  - Sao Jose Dos Campos  R$ 8,15 Data Da Pesquisa: 23/11/2026 11:24:32 Data Da Base De Dados: 23/11/2026 02:52:02 Resultado Linhas Partidas De: Lorena  Tempo De Percurso: 2 Horas E 30 Minutosos Horários Informados São Referentes Ao Ponto Inicial E Estão Sujeitos A Mudanças Em Função De Fatores Externos .Esses Horários Estão Sujeitos A Alterações Sem Prévio Aviso Caso Aconteçam Mudanças Operacionais Nas Linhas.Dias Úteis05:00 06:00 07:00 08:00 10:00 11:00 13:00 15:00 17:15 18:30 22:30 Sábados05:00 07:00 08:00 10:00 11:00 12:30 13:00 15:00 15:30 17:15 18:30 Domingos E Feriados05:00 07:00 08:00 10:00 11:00 12:30 13:00 13:30 15:00 15:30 17:00 17:45 18:30 20:15 Endereço Município Terminal Rodoviario De Lorena Lorena Rua Guaicurus Lorena Avenida Sao Tomaz Lorena Rua Padre Joao Renaudin Lorena Rua Monte Castelo Lorena Avenida Oswaldo Aranha Lorena Rua Major Joaquim Luis Bastos Lorena Avenida Doutor Peixoto De Castro Lorena Rodovia Presidente Dutra - Br 116 Lorena Rodovia Presidente Dutra - Br 116 Guaratingueta Avenida Jose Juvenal Monteiro Dos Santos Guaratingueta Terminal Rodoviario De Guaratingueta Guaratingueta Avenida Jose Juvenal Monteiro Dos Santos Guaratingueta Rua Visconde De Guaratingueta Guaratingueta Avenida Santos Dumont Guaratingueta Avenida Padroeira Do Brasil Guaratingueta Avenida Padroeira Do Brasil Aparecida Rua Antonio Samaha Aparecida Rua Santo Afonso Aparecida Rua Colombano Teixeira Aparecida Rua Sao Jose Aparecida Terminal Rodoviario De Aparecida Aparecida Rua Sao Jose Aparecida Rua Barao Do Rio Branco Aparecida Rua Chagas Pereira Aparecida Avenida Papa Joao Paulo Ii Aparecida Avenida Getulio Vargas Aparecida Rodovia Presidente Dutra - Br 116 Aparecida Rodovia Presidente Dutra - Br 116 Roseira Rodovia Presidente Dutra - Br 116 Pindamonhangaba Praca De Pedagio Dutra  Pindamonhangaba Rodovia Presidente Dutra - Br 116 Pindamonhangaba Rodovia Presidente Dutra - Br 116 Taubate Avenida Bandeirantes Taubate Avenida Santa Luiza De Marillac Taubate Rua Lydia Rudner Schmidt Taubate Terminal Rodoviario Novo De Taubate Taubate Rua Lydia Rudner Schmidt Taubate Avenida Santa Luiza De Marillac Taubate Avenida Bandeirantes Taubate Rodovia Presidente Dutra - Br 116 Taubate Rodovia Presidente Dutra - Br 116 Cacapava Avenida Coronel Manoel Inocencio Cacapava Retorno Altura Do Nº 1140 Da Av. Coronel Manoel Inocencio Cacapava Avenida Coronel Manoel Inocencio Cacapava Rua Antonio De Castro Junior Cacapava Avenida Brasil Cacapava Terminal Rodoviario De Cacapava Cacapava Rua Duque De Caxias Cacapava Avenida Brasil Cacapava Avenida Henry Nestle Cacapava Rodovia Presidente Dutra - Br 116 Cacapava Rodovia Presidente Dutra - Br 116 Sao Jose Dos Campos Avenida Deputado Benedito Matarazzo Sao Jose Dos Campos Avenida Samuel Wainer Sao Jose Dos Campos Avenida Santos Dumont Sao Jose Dos Campos Rua Ceci Sao Jose Dos Campos Rua Umuarama Sao Jose Dos Campos Rua Tupa Sao Jose Dos Campos Avenida Santos Dumont Sao Jose Dos Campos Rua Antonio Porfirio Da Silva Sao Jose Dos Campos Rua Dom Carmine Rocco Sao Jose Dos Campos Terminal Rodoviario Frederico Ozanam Sao Jose Dos Campos Partidas De: Sao Jose Dos Campos  Tempo De Percurso: 2 Horas E 30 Minutosdias Úteis05:30 06:30 07:45 08:45 09:45 11:45 12:45 13:45 15:45 19:15 21:30 Sábados06:30 07:15 07:45 09:15 11:45 13:45 15:45 16:45 19:15 21:30 Domingos E Feriados06:30 07:15 07:45 09:45 11:45 13:45 14:45 15:45 16:45 19:15 19:45 21:30 Endereço Município Terminal Rodoviario Frederico Ozanam Sao Jose Dos Campos Rua Antonio Porfirio Da Silva Sao Jose Dos Campos Rua Turmalina Sao Jose Dos Campos Rua Ceci Sao Jose Dos Campos Avenida Dos Astronautas Sao Jose Dos Campos Rodovia Presidente Dutra - Br 116 Sao Jose Dos Campos Rodovia Presidente Dutra - Br 116 Cacapava Rua Jose Alcantara Telles Cacapava Avenida Brasil Cacapava Terminal Rodoviario De Cacapava Cacapava Rua Duque De Caxias Cacapava Rua Joao Batista Freire Cacapava Rua Antonio De Castro Junior Cacapava Viaduto Dutra - Km 127 Cacapava Rua Barreto Leme Cacapava Rodovia Presidente Dutra - Br 116 Cacapava Rodovia Presidente Dutra - Br 116 Taubate Avenida Dom Pedro I Taubate Avenida Brigadeiro Jose Vicente De Faria Lima Taubate Avenida Bandeirantes Taubate Avenida Santa Luiza De Marillac Taubate Rua Lydia Rudner Schmidt Taubate Terminal Rodoviario Novo De Taubate Taubate Rua Lydia Rudner Schmidt Taubate Avenida Santa Luiza De Marillac Taubate Avenida Bandeirantes Taubate Avenida Brigadeiro Jose Vicente De Faria Lima Taubate Rodovia Presidente Dutra - Br 116 Taubate Rodovia Presidente Dutra - Br 116 Pindamonhangaba Praca De Pedagio Dutra  Pindamonhangaba Rodovia Presidente Dutra - Br 116 Pindamonhangaba Rodovia Presidente Dutra - Br 116 Roseira Rodovia Presidente Dutra - Br 116 Aparecida Avenida Getulio Vargas Aparecida Rua Anchieta Aparecida Rua Joao Alves Aparecida Avenida Papa Joao Paulo Ii Aparecida Avenida Aristides De Andrade Aparecida Rua Sao Jose Aparecida Terminal Rodoviario De Aparecida Aparecida Rua Sao Jose Aparecida Rua Barao Do Rio Branco Aparecida Avenida Padroeira Do Brasil Aparecida Avenida Padroeira Do Brasil Guaratingueta Avenida Santos Dumont Guaratingueta Rua Visconde De Guaratingueta Guaratingueta Avenida Jose Juvenal Monteiro Dos Santos Guaratingueta Terminal Rodoviario De Guaratingueta Guaratingueta Avenida Jose Juvenal Monteiro Dos Santos Guaratingueta Rodovia Presidente Dutra - Br 116 Guaratingueta Rodovia Presidente Dutra - Br 116 Lorena Avenida Doutor Peixoto De Castro Lorena Avenida Doutor Pedro Vicente De Azevedo Lorena Avenida Oswaldo Aranha Lorena Rua Monte Castelo Lorena Rua Padre Joao Renaudin Lorena Terminal Rodoviario De Lorena Lorena": {
-    "atualizado_em": "23/11/2026",
+  "Seletivo 5305 • Lorena ↔ São José dos Campos": {
     "valor": 44.65,
-    "vigencia_oficial": "Tabela EMTU 5305"
-  },
-  "Seletivo 5305 • Linha: 5305 Lorena  Sao Jose Dos Campos  Serviço De Transporte : Seletivo Empresa Operadora: Passaro Marron Terminal Inicial : Terminal Rodoviario De Lorena Terminal Final : Terminal Rodoviario Frederico Ozanam Serviço : Seletivo Quadro De Tarifas Tarifa Autorizada: R$ 44,65 Quadro De Seccionamentos Seccionamentos Tarifa 1 - Lorena  - Guaratingueta  R$ 8,15 2 - Lorena  - Aparecida  R$ 10,05 3 - Lorena  - Roseira - Rod. Pres. Dutra - Km 77,500 R$ 13,60 4 - Lorena  - Taubate  R$ 26,90 5 - Lorena  - Cacapava  R$ 35,85 6 - Guaratingueta  - Aparecida  R$ 5,45 7 - Guaratingueta  - Roseira  R$ 6,35 8 - Guaratingueta  - Taubate  R$ 19,50 9 - Guaratingueta  - Cacapava  R$ 26,70 10 - Guaratingueta  - São Jose Dos Campos  R$ 36,40 11 - Aparecida  - Roseira  R$ 5,45 12 - Aparecida  - Taubate  R$ 17,60 13 - Aparecida  - Cacapava  R$ 24,85 14 - Aparecida  - Sao Jose Dos Campos  R$ 34,30 15 - Roseira  - Taubate  R$ 11,85 16 - Roseira  - Cacapava  R$ 21,20 17 - Roseira  - Sao Jose Dos Campos  R$ 28,60 18 - Taubate  - Cacapava  R$ 8,15 19 - Taubate  - Sao Jose Dos Campos  R$ 15,80 20 - Cacapava  - Sao Jose Dos Campos  R$ 8,15 Data Da Pesquisa: 23/11/2026 11:30:04 Data Da Base De Dados: 23/11/2026 02:52:02 Resultado Linhas Partidas De: Lorena  Tempo De Percurso: 2 Horas E 30 Minutosos Horários Informados São Referentes Ao Ponto Inicial E Estão Sujeitos A Mudanças Em Função De Fatores Externos .Esses Horários Estão Sujeitos A Alterações Sem Prévio Aviso Caso Aconteçam Mudanças Operacionais Nas Linhas.Dias Úteis05:00 06:00 07:00 08:00 10:00 11:00 13:00 15:00 17:15 18:30 22:30 Sábados05:00 07:00 08:00 10:00 11:00 12:30 13:00 15:00 15:30 17:15 18:30 Domingos E Feriados05:00 07:00 08:00 10:00 11:00 12:30 13:00 13:30 15:00 15:30 17:00 17:45 18:30 20:15 Endereço Município Terminal Rodoviario De Lorena Lorena Rua Guaicurus Lorena Avenida Sao Tomaz Lorena Rua Padre Joao Renaudin Lorena Rua Monte Castelo Lorena Avenida Oswaldo Aranha Lorena Rua Major Joaquim Luis Bastos Lorena Avenida Doutor Peixoto De Castro Lorena Rodovia Presidente Dutra - Br 116 Lorena Rodovia Presidente Dutra - Br 116 Guaratingueta Avenida Jose Juvenal Monteiro Dos Santos Guaratingueta Terminal Rodoviario De Guaratingueta Guaratingueta Avenida Jose Juvenal Monteiro Dos Santos Guaratingueta Rua Visconde De Guaratingueta Guaratingueta Avenida Santos Dumont Guaratingueta Avenida Padroeira Do Brasil Guaratingueta Avenida Padroeira Do Brasil Aparecida Rua Antonio Samaha Aparecida Rua Santo Afonso Aparecida Rua Colombano Teixeira Aparecida Rua Sao Jose Aparecida Terminal Rodoviario De Aparecida Aparecida Rua Sao Jose Aparecida Rua Barao Do Rio Branco Aparecida Rua Chagas Pereira Aparecida Avenida Papa Joao Paulo Ii Aparecida Avenida Getulio Vargas Aparecida Rodovia Presidente Dutra - Br 116 Aparecida Rodovia Presidente Dutra - Br 116 Roseira Rodovia Presidente Dutra - Br 116 Pindamonhangaba Praca De Pedagio Dutra  Pindamonhangaba Rodovia Presidente Dutra - Br 116 Pindamonhangaba Rodovia Presidente Dutra - Br 116 Taubate Avenida Bandeirantes Taubate Avenida Santa Luiza De Marillac Taubate Rua Lydia Rudner Schmidt Taubate Terminal Rodoviario Novo De Taubate Taubate Rua Lydia Rudner Schmidt Taubate Avenida Santa Luiza De Marillac Taubate Avenida Bandeirantes Taubate Rodovia Presidente Dutra - Br 116 Taubate Rodovia Presidente Dutra - Br 116 Cacapava Avenida Coronel Manoel Inocencio Cacapava Retorno Altura Do Nº 1140 Da Av. Coronel Manoel Inocencio Cacapava Avenida Coronel Manoel Inocencio Cacapava Rua Antonio De Castro Junior Cacapava Avenida Brasil Cacapava Terminal Rodoviario De Cacapava Cacapava Rua Duque De Caxias Cacapava Avenida Brasil Cacapava Avenida Henry Nestle Cacapava Rodovia Presidente Dutra - Br 116 Cacapava Rodovia Presidente Dutra - Br 116 Sao Jose Dos Campos Avenida Deputado Benedito Matarazzo Sao Jose Dos Campos Avenida Samuel Wainer Sao Jose Dos Campos Avenida Santos Dumont Sao Jose Dos Campos Rua Ceci Sao Jose Dos Campos Rua Umuarama Sao Jose Dos Campos Rua Tupa Sao Jose Dos Campos Avenida Santos Dumont Sao Jose Dos Campos Rua Antonio Porfirio Da Silva Sao Jose Dos Campos Rua Dom Carmine Rocco Sao Jose Dos Campos Terminal Rodoviario Frederico Ozanam Sao Jose Dos Campos Partidas De: Sao Jose Dos Campos  Tempo De Percurso: 2 Horas E 30 Minutosdias Úteis05:30 06:30 07:45 08:45 09:45 11:45 12:45 13:45 15:45 19:15 21:30 Sábados06:30 07:15 07:45 09:15 11:45 13:45 15:45 16:45 19:15 21:30 Domingos E Feriados06:30 07:15 07:45 09:45 11:45 13:45 14:45 15:45 16:45 19:15 19:45 21:30 Endereço Município Terminal Rodoviario Frederico Ozanam Sao Jose Dos Campos Rua Antonio Porfirio Da Silva Sao Jose Dos Campos Rua Turmalina Sao Jose Dos Campos Rua Ceci Sao Jose Dos Campos Avenida Dos Astronautas Sao Jose Dos Campos Rodovia Presidente Dutra - Br 116 Sao Jose Dos Campos Rodovia Presidente Dutra - Br 116 Cacapava Rua Jose Alcantara Telles Cacapava Avenida Brasil Cacapava Terminal Rodoviario De Cacapava Cacapava Rua Duque De Caxias Cacapava Rua Joao Batista Freire Cacapava Rua Antonio De Castro Junior Cacapava Viaduto Dutra - Km 127 Cacapava Rua Barreto Leme Cacapava Rodovia Presidente Dutra - Br 116 Cacapava Rodovia Presidente Dutra - Br 116 Taubate Avenida Dom Pedro I Taubate Avenida Brigadeiro Jose Vicente De Faria Lima Taubate Avenida Bandeirantes Taubate Avenida Santa Luiza De Marillac Taubate Rua Lydia Rudner Schmidt Taubate Terminal Rodoviario Novo De Taubate Taubate Rua Lydia Rudner Schmidt Taubate Avenida Santa Luiza De Marillac Taubate Avenida Bandeirantes Taubate Avenida Brigadeiro Jose Vicente De Faria Lima Taubate Rodovia Presidente Dutra - Br 116 Taubate Rodovia Presidente Dutra - Br 116 Pindamonhangaba Praca De Pedagio Dutra  Pindamonhangaba Rodovia Presidente Dutra - Br 116 Pindamonhangaba Rodovia Presidente Dutra - Br 116 Roseira Rodovia Presidente Dutra - Br 116 Aparecida Avenida Getulio Vargas Aparecida Rua Anchieta Aparecida Rua Joao Alves Aparecida Avenida Papa Joao Paulo Ii Aparecida Avenida Aristides De Andrade Aparecida Rua Sao Jose Aparecida Terminal Rodoviario De Aparecida Aparecida Rua Sao Jose Aparecida Rua Barao Do Rio Branco Aparecida Avenida Padroeira Do Brasil Aparecida Avenida Padroeira Do Brasil Guaratingueta Avenida Santos Dumont Guaratingueta Rua Visconde De Guaratingueta Guaratingueta Avenida Jose Juvenal Monteiro Dos Santos Guaratingueta Terminal Rodoviario De Guaratingueta Guaratingueta Avenida Jose Juvenal Monteiro Dos Santos Guaratingueta Rodovia Presidente Dutra - Br 116 Guaratingueta Rodovia Presidente Dutra - Br 116 Lorena Avenida Doutor Peixoto De Castro Lorena Avenida Doutor Pedro Vicente De Azevedo Lorena Avenida Oswaldo Aranha Lorena Rua Monte Castelo Lorena Rua Padre Joao Renaudin Lorena Terminal Rodoviario De Lorena Lorena": {
-    "atualizado_em": "23/11/2026",
-    "valor": 44.65,
-    "vigencia_oficial": "Tabela EMTU 5305"
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
   }
 }
