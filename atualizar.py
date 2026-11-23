@@ -1,4 +1,3 @@
-
 import json
 import re
 from datetime import date
@@ -8,24 +7,24 @@ from bs4 import BeautifulSoup
 ARQUIVO = "tarifas_vale.json"
 
 FONTES = {
-    "Lorena ↔ Guaratinguetá (Comum)": (
+    "Lorena ↔ Guaratinguetá (Comum - Linha 5312)": (
         "https://emtu.sp.gov.br",
         "Tarifa Autorizada"
     ),
-    "Lorena ↔ Guaratinguetá (Seletivo)": (
+    "Aparecida ↔ Guaratinguetá (Comum - Linha 5316)": (
         "https://emtu.sp.gov.br",
+        "5316"
+    ),
+    "Lorena ↔ Guaratinguetá (Seletivo - Linha 5305)": (
+        "https://www.emtu.sp.gov.br/sistemas/linha/resultado_imp.htm?numlinha=50094",
         "LORENA (TERMINAL RODOVIARIO DE LORENA) - GUARATINGUETA"
     ),
-    "Guaratinguetá ↔ Aparecida (Seletivo)": (
-        "https://emtu.sp.gov.br",
-        "GUARATINGUETA (TERM ROD. DE GUARATINGUETA) - APARECIDA"
+    "Guaratinguetá ↔ Aparecida (Seletivo - Linha 5305)": (
+        "https://www.emtu.sp.gov.br/sistemas/linha/resultado_imp.htm?numlinha=50094",
+        "GUARATINGUETA (TERMINAL ROD. DE GUARATINGUETA) - APARECIDA"
     ),
-    "Guaratinguetá ↔ São José dos Campos (Seletivo)": (
-        "https://emtu.sp.gov.br",
-        "GUARATINGUETA (TERM ROD. DE GUARATINGUETA) - SAO JOSE DOS CAMPOS"
-    ),
-    "Lorena ↔ São José dos Campos (Seletivo)": (
-        "https://emtu.sp.gov.br",
+    "Lorena ↔ São José dos Campos (Seletivo - Linha 5305)": (
+        "https://www.emtu.sp.gov.br/sistemas/linha/resultado_imp.htm?numlinha=50094",
         "Tarifa Autorizada"
     )
 }
