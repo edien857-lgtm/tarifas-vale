@@ -1,34 +1,162 @@
 {
-  "INTERNA TUG • L02 Rodoviária ↔ São Manoel": {"valor": 5.50, "vigencia_oficial": "25/03/2026", "atualizado_em": "23/11/2026"},
-  "INTERNA TUG • L03 Rodoviária ↔ Vila dos Sargentos (EEAR)": {"valor": 5.50, "vigencia_oficial": "25/03/2026", "atualizado_em": "23/11/2026"},
-  "INTERNA TUG • L04 Rodoviária ↔ Parque São Francisco": {"valor": 5.50, "vigencia_oficial": "25/03/2026", "atualizado_em": "23/11/2026"},
-  "INTERNA TUG • L05 Rodoviária ↔ Pingo de Ouro / Tamandaré": {"valor": 5.50, "vigencia_oficial": "25/03/2026", "atualizado_em": "23/11/2026"},
-  "INTERNA TUG • L06/L07/L08 Santa Luzia / Pilões / Rocinha": {"valor": 5.50, "vigencia_oficial": "25/03/2026", "atualizado_em": "23/11/2026"},
-  "INTERNA TUG • L15 Eng. Neiva / L20-L21 Jardim do Vale I e II": {"valor": 5.50, "vigencia_oficial": "25/03/2026", "atualizado_em": "23/11/2026"},
-  "INTERNA TUG • L23/L24/L25/L27 Demais Bairros Urbanos": {"valor": 5.50, "vigencia_oficial": "25/03/2026", "atualizado_em": "23/11/2026"},
-  "INTERNA COMPLEMENTAR • L01/L03/L09/L10 Vans Urbanas": {"valor": 5.50, "vigencia_oficial": "25/03/2026", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Aparecida (EMTU 5316 Comum)": {"valor": 4.55, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Aparecida → Guaratinguetá (EMTU 5316 Comum)": {"valor": 4.55, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Aparecida (Seletivo 5305)": {"valor": 5.45, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Aparecida → Guaratinguetá (Seletivo 5305)": {"valor": 5.45, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Potim (EMTU 5318 Comum)": {"valor": 5.50, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Potim → Guaratinguetá (EMTU 5318 Comum)": {"valor": 5.50, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Lorena (EMTU 5312 Comum)": {"valor": 5.80, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Lorena → Guaratinguetá (EMTU 5312 Comum)": {"valor": 5.80, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Lorena (Seletivo 5305)": {"valor": 8.15, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Lorena → Guaratinguetá (Seletivo 5305)": {"valor": 8.15, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Roseira (Seção 5305)": {"valor": 8.15, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Roseira → Guaratinguetá (Seção 5305)": {"valor": 8.15, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Pindamonhangaba (EMTU 5311)": {"valor": 15.85, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Pindamonhangaba → Guaratinguetá (EMTU 5311)": {"valor": 15.85, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Cunha (EMTU 5319)": {"valor": 19.20, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Cunha → Guaratinguetá (EMTU 5319)": {"valor": 19.20, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Cruzeiro (EMTU 5301)": {"valor": 21.00, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Cruzeiro → Guaratinguetá (EMTU 5301)": {"valor": 21.00, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Taubaté (EMTU 5306)": {"valor": 26.90, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Taubaté → Guaratinguetá (EMTU 5306)": {"valor": 26.90, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → São José dos Campos (Pássaro Marron)": {"valor": 39.40, "vigencia_oficial": "Tabela Pássaro Marron", "atualizado_em": "23/11/2026"},
-  "VOLTA • São José dos Campos → Guaratinguetá (Pássaro Marron)": {"valor": 44.10, "vigencia_oficial": "Tabela Pássaro Marron", "atualizado_em": "23/11/2026"},
-  "IDA • Guaratinguetá → Bananal (EMTU 5402)": {"valor": 57.20, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"},
-  "VOLTA • Bananal → Guaratinguetá (EMTU 5402)": {"valor": 57.20, "vigencia_oficial": "Tabela EMTU", "atualizado_em": "23/11/2026"}
+  "INTERNA TUG • L02 Rodoviária ↔ São Manoel": {
+    "valor": 49.9,
+    "vigencia_oficial": "25/03/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "INTERNA TUG • L03 Rodoviária ↔ Vila dos Sargentos (EEAR)": {
+    "valor": 49.9,
+    "vigencia_oficial": "25/03/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "INTERNA TUG • L04 Rodoviária ↔ Parque São Francisco": {
+    "valor": 49.9,
+    "vigencia_oficial": "25/03/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "INTERNA TUG • L05 Rodoviária ↔ Pingo de Ouro / Tamandaré": {
+    "valor": 49.9,
+    "vigencia_oficial": "25/03/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "INTERNA TUG • L06/L07/L08 Santa Luzia / Pilões / Rocinha": {
+    "valor": 49.9,
+    "vigencia_oficial": "25/03/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "INTERNA TUG • L15 Eng. Neiva / L20-L21 Jardim do Vale I e II": {
+    "valor": 49.9,
+    "vigencia_oficial": "25/03/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "INTERNA TUG • L23/L24/L25/L27 Demais Bairros Urbanos": {
+    "valor": 49.9,
+    "vigencia_oficial": "25/03/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "INTERNA COMPLEMENTAR • L01/L03/L09/L10 Vans Urbanas": {
+    "valor": 49.9,
+    "vigencia_oficial": "25/03/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Aparecida (EMTU 5316 Comum)": {
+    "valor": 4.55,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Aparecida → Guaratinguetá (EMTU 5316 Comum)": {
+    "valor": 4.55,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Aparecida (Seletivo 5305)": {
+    "valor": 5.45,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Aparecida → Guaratinguetá (Seletivo 5305)": {
+    "valor": 5.45,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Potim (EMTU 5318 Comum)": {
+    "valor": 5.5,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Potim → Guaratinguetá (EMTU 5318 Comum)": {
+    "valor": 5.5,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Lorena (EMTU 5312 Comum)": {
+    "valor": 5.8,
+    "vigencia_oficial": "Base EMTU 23/11/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Lorena → Guaratinguetá (EMTU 5312 Comum)": {
+    "valor": 5.8,
+    "vigencia_oficial": "Base EMTU 23/11/2026",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Lorena (Seletivo 5305)": {
+    "valor": 8.15,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Lorena → Guaratinguetá (Seletivo 5305)": {
+    "valor": 8.15,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Roseira (Seção 5305)": {
+    "valor": 8.15,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Roseira → Guaratinguetá (Seção 5305)": {
+    "valor": 8.15,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Pindamonhangaba (EMTU 5311)": {
+    "valor": 15.85,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Pindamonhangaba → Guaratinguetá (EMTU 5311)": {
+    "valor": 15.85,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Cunha (EMTU 5319)": {
+    "valor": 19.2,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Cunha → Guaratinguetá (EMTU 5319)": {
+    "valor": 19.2,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Cruzeiro (EMTU 5301)": {
+    "valor": 21.0,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Cruzeiro → Guaratinguetá (EMTU 5301)": {
+    "valor": 21.0,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Taubaté (EMTU 5306)": {
+    "valor": 26.9,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Taubaté → Guaratinguetá (EMTU 5306)": {
+    "valor": 26.9,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → São José dos Campos (Pássaro Marron)": {
+    "valor": 39.4,
+    "vigencia_oficial": "Tabela Pássaro Marron",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • São José dos Campos → Guaratinguetá (Pássaro Marron)": {
+    "valor": 44.1,
+    "vigencia_oficial": "Tabela Pássaro Marron",
+    "atualizado_em": "23/11/2026"
+  },
+  "IDA • Guaratinguetá → Bananal (EMTU 5402)": {
+    "valor": 57.2,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  },
+  "VOLTA • Bananal → Guaratinguetá (EMTU 5402)": {
+    "valor": 57.2,
+    "vigencia_oficial": "Tabela EMTU",
+    "atualizado_em": "23/11/2026"
+  }
 }
