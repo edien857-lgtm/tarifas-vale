@@ -7,11 +7,20 @@ from bs4 import BeautifulSoup
 ARQUIVO = "tarifas_vale.json"
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
+# Mapeamento direto das fichas oficiais da EMTU (Pássaro Marron) ligadas a Guaratinguetá
+FICHAS_EMTU = [
+    ("5316", "http://www.emtu.sp.gov.br/Sistemas/linha/resultado.htm?numlinha=5316&pag=buscanumero.htm", "Guaratinguetá", "Aparecida (EMTU 5316 Comum)"),
+    ("5318", "http://www.emtu.sp.gov.br/Sistemas/linha/resultado.htm?numlinha=5318&pag=buscanumero.htm", "Guaratinguetá", "Potim (EMTU 5318 Comum)"),
+    ("5312", "http://www.emtu.sp.gov.br/sistemas/linha/resultado_imp.htm?numlinha=50836", "Guaratinguetá", "Lorena (EMTU 5312 Comum)"),
+    ("5311", "http://www.emtu.sp.gov.br/Sistemas/linha/resultado.htm?numlinha=5311&pag=buscanumero.htm", "Guaratinguetá", "Pindamonhangaba (EMTU 5311 / 5311EX1)"),
+    ("5402", "http://www.emtu.sp.gov.br/sistemas/linha/resultado_imp.htm?numlinha=43008", "Guaratinguetá", "Bananal (EMTU 5402 Seletivo)")
+]
+
 def limpar(txt):
     return " ".join(txt.split())
 
-def atualizar_municipal_guara(dados):
-    url = "https://otimizapro.com/tarifa/sp/guaratingueta"
+def atualizar_internas_guara(dados, hoje):
+    url = "https://otimizapro.com"
     try:
         r = requests.get(url, headers=HEADERS, timeout=20)
         texto = limpar(BeautifulSoup(r.text, "html.parser").get_text())
@@ -19,68 +28,39 @@ def atualizar_municipal_guara(dados):
         m_vig = re.search(r"desde\s*(\d{2}/\d{2}/\d{4})", texto)
         if m_val:
             val = float(m_val.group(1).replace(",", "."))
-            vig = m_vig.group(1) if m_vig else "Decreto Municipal"
-            chave = "Municipal Guaratinguetá (TUG - Urbano Interno)"
-            if dados.get(chave, {}).get("valor") != val:
-                dados[chave] = {
-                    "valor": val,
-                    "vigencia_oficial": vig,
-                    "atualizado_em": date.today().strftime("%d/%m/%Y")
-                }
+            vig = m_vig.group(1) if m_vig else "25/03/2026"
+            for chave in list(dados.keys()):
+                if chave.startswith("INTERNA "):
+                    if dados[chave].get("valor") != val or dados[chave].get("vigencia_oficial") != vig:
+                        dados[chave]["valor"] = val
+                        dados[chave]["vigencia_oficial"] = vig
+                        dados[chave]["atualizado_em"] = hoje
     except Exception as e:
-        print("Erro municipal Guará:", e)
+        print("Erro internas Guará:", e)
 
-def atualizar_emtu_passaro_marron(dados):
-    # 1. Busca todas as linhas da Pássaro Marron (operadora=273) no Vale (regiao=257)
-    url_empresa = "http://www.emtu.sp.gov.br/sistemas/linha/resultado.htm?pag=buscaempresa.htm&operadora=273&regiao=257"
-    try:
-        r = requests.get(url_empresa, headers=HEADERS, timeout=20)
-        r.encoding = "iso-8859-1"
-        soup = BeautifulSoup(r.text, "html.parser")
-        for tr in soup.find_all("tr"):
-            cols = [limpar(td.get_text()) for td in tr.find_all("td")]
-            if len(cols) >= 4 and "GUARATINGUETA" in cols[1].upper():
-                num = cols[0]
-                desc = cols[1].title()
-                m = re.search(r"R\$\s*(\d+,\d{2})", cols[3])
-                if m:
-                    val = float(m.group(1).replace(",", "."))
-                    chave = f"EMTU {num} • {desc}"
-                    if dados.get(chave, {}).get("valor") != val:
-                        dados[chave] = {
-                            "valor": val,
-                            "vigencia_oficial": "Tabela EMTU/ARTESP",
-                            "atualizado_em": date.today().strftime("%d/%m/%Y")
-                        }
-    except Exception as e:
-        print("Erro lista Pássaro Marron EMTU:", e)
+def atualizar_emtu(dados, hoje):
+    for codigo, url, orig, dest in FICHAS_EMTU:
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=20)
+            r.encoding = "iso-8859-1"
+            texto = limpar(BeautifulSoup(r.text, "html.parser").get_text())
 
-    # 2. Busca todos os seccionamentos da Linha 5305 (Seletivo) ligando Guaratinguetá
-    url_5305 = "https://www.emtu.sp.gov.br/sistemas/linha/resultado_imp.htm?numlinha=50094"
-    try:
-        r = requests.get(url_5305, headers=HEADERS, timeout=20)
-        r.encoding = "iso-8859-1"
-        soup = BeautifulSoup(r.text, "html.parser")
-        texto_geral = limpar(soup.get_text())
-        m_vig = re.search(r"Vig[êe]ncia[^0-9]*(\d{2}/\d{2}/\d{4})", texto_geral, re.I)
-        vig = m_vig.group(1) if m_vig else "Tabela EMTU 5305"
+            # Captura a data oficial da base de dados da EMTU (ex: Data da base de dados: 23/11/2026)
+            m_data = re.search(r"Data da base de dados:\s*(\d{2}/\d{2}/\d{4})", texto)
+            vig = f"Base EMTU {m_data.group(1)}" if m_data else "Tabela EMTU"
 
-        for tr in soup.find_all("tr"):
-            cols = [limpar(td.get_text()) for td in tr.find_all("td")]
-            if len(cols) >= 2 and "GUARATINGUETA" in cols[0].upper() and "R$" in cols[1]:
-                m = re.search(r"R\$\s*(\d+,\d{2})", cols[1])
-                if m:
-                    val = float(m.group(1).replace(",", "."))
-                    trecho_limpo = re.sub(r"\([^)]*\)", "", cols[0]).strip().title()
-                    chave = f"Seletivo 5305 • {trecho_limpo}"
-                    if dados.get(chave, {}).get("valor") != val:
-                        dados[chave] = {
-                            "valor": val,
-                            "vigencia_oficial": vig,
-                            "atualizado_em": date.today().strftime("%d/%m/%Y")
-                        }
-    except Exception as e:
-        print("Erro seccionamentos 5305:", e)
+            m_val = re.search(r"R\$\s*(\d+,\d{2})", texto)
+            if m_val:
+                val = float(m_val.group(1).replace(",", "."))
+                if 2.0 <= val <= 150.0:
+                    for prefixo, c1, c2 in [("IDA", orig, dest), ("VOLTA", dest.split(" (")[0], f"{orig} ({dest.split(' (')[1]}")]:
+                        chave = f"{prefixo} • {c1} → {c2}"
+                        if chave in dados and (dados[chave].get("valor") != val or dados[chave].get("vigencia_oficial") != vig):
+                            dados[chave]["valor"] = val
+                            dados[chave]["vigencia_oficial"] = vig
+                            dados[chave]["atualizado_em"] = hoje
+        except Exception as e:
+            print(f"Erro EMTU {codigo}:", e)
 
 def main():
     try:
@@ -89,24 +69,12 @@ def main():
     except FileNotFoundError:
         dados = {}
 
-    # Garante linhas adicionais importantes (ex: Cunha e Rodoviário Guará x SJC)
-    extras = {
-        "EMTU 5319 • Guaratinguetá ↔ Cunha (Rodov. São José)": 19.20,
-        "Rodoviário Pássaro Marron • Guaratinguetá ↔ SJC": 39.40
-    }
-    for k, v in extras.items():
-        if k not in dados:
-            dados[k] = {
-                "valor": v,
-                "vigencia_oficial": "Tabela ARTESP 2026",
-                "atualizado_em": date.today().strftime("%d/%m/%Y")
-            }
-
-    atualizar_municipal_guara(dados)
-    atualizar_emtu_passaro_marron(dados)
+    hoje = date.today().strftime("%d/%m/%Y")
+    atualizar_internas_guara(dados, hoje)
+    atualizar_emtu(dados, hoje)
 
     with open(ARQUIVO, "w", encoding="utf-8") as f:
-        json.dump(dados, f, indent=2, ensure_ascii=False, sort_keys=True)
+        json.dump(dados, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
     main()
