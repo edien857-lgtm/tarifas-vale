@@ -6,17 +6,17 @@
   <title>Tarifas Vale do Paraíba</title>
   <style>
     :root {
-      --bg: #0b192c;
-      --card: rgba(19, 39, 67, 0.90);
+      --bg: #071324;
+      --card: rgba(15, 31, 56, 0.88);
       --text: #f8fafc;
       --muted: #cbd5e1;
       --accent: #38bdf8;
       --accent-bg: rgba(56, 189, 248, 0.14);
-      --border: #27496d;
+      --border: #1e3a63;
     }
     body {
       font-family: 'Segoe UI', system-ui, sans-serif;
-      background-color: var(--bg);
+      background: radial-gradient(circle at top, #0f294a 0%, #071324 100%);
       color: var(--text);
       display: flex;
       justify-content: center;
@@ -27,29 +27,36 @@
       position: relative;
       overflow-x: hidden;
     }
-    body::before {
-      content: "";
+    /* Gládio Alado gigante em marca d'água no fundo da tela */
+    .bg-gladio {
       position: fixed;
-      inset: 0;
-      background-image: url('https://wikimedia.org');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 380px auto;
-      opacity: 0.14;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 680px;
+      max-width: 95vw;
+      opacity: 0.12;
       pointer-events: none;
       z-index: 0;
+      color: #ffffff;
     }
     .card {
       position: relative;
       z-index: 1;
       background: var(--card);
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
       border: 1px solid var(--border);
       max-width: 440px;
       width: 100%;
       padding: 28px;
       border-radius: 16px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+    .header-topo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
     }
     .badge {
       display: inline-block;
@@ -59,8 +66,13 @@
       font-weight: 700;
       padding: 4px 10px;
       border-radius: 999px;
-      margin-bottom: 10px;
       text-transform: uppercase;
+    }
+    .mini-gladio {
+      width: 48px;
+      height: auto;
+      color: var(--accent);
+      opacity: 0.9;
     }
     h1 { font-size: 1.4rem; margin: 0 0 4px; }
     p.sub { font-size: 0.88rem; color: var(--muted); margin: 0 0 22px; }
@@ -68,7 +80,7 @@
     select, input {
       width: 100%;
       padding: 12px;
-      background: rgba(11, 25, 44, 0.85);
+      background: rgba(7, 19, 36, 0.85);
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -84,7 +96,7 @@
     .atalhos button {
       flex: 1;
       padding: 8px;
-      background: rgba(11, 25, 44, 0.85);
+      background: rgba(7, 19, 36, 0.85);
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -106,8 +118,34 @@
   </style>
 </head>
 <body>
+
+  <!-- Gládio Alado em vetor embutido no fundo -->
+  <svg class="bg-gladio" viewBox="0 0 400 220" fill="currentColor" xmlns="http://w3.org">
+    <!-- Lâmina e punho do sabre central -->
+    <polygon points="200,12 193,42 193,155 207,155 207,42"/>
+    <rect x="172" y="155" width="56" height="7" rx="3"/>
+    <rect x="195" y="162" width="10" height="32" rx="2"/>
+    <circle cx="200" cy="200" r="8"/>
+    <!-- Asa Esquerda -->
+    <path d="M188,125 C140,115 70,85 15,48 C35,75 75,95 125,108 C75,102 40,92 22,82 C48,104 88,118 135,125 C92,124 60,118 42,112 C68,128 105,137 148,140 C112,142 84,140 68,136 C95,148 135,152 188,146 Z"/>
+    <!-- Asa Direita -->
+    <path d="M212,125 C260,115 330,85 385,48 C365,75 325,95 275,108 C325,102 360,92 378,82 C352,104 312,118 265,125 C308,124 340,118 358,112 C332,128 295,137 252,140 C288,142 316,140 332,136 C305,148 265,152 212,146 Z"/>
+  </svg>
+
   <div class="card">
-    <span class="badge">EMTU • Pássaro Marron</span>
+    <div class="header-topo">
+      <span class="badge">EMTU • Pássaro Marron</span>
+      <!-- Mini Gládio Alado no topo do cartão -->
+      <svg class="mini-gladio" viewBox="0 0 400 220" fill="currentColor" xmlns="http://w3.org">
+        <polygon points="200,12 193,42 193,155 207,155 207,42"/>
+        <rect x="172" y="155" width="56" height="7" rx="3"/>
+        <rect x="195" y="162" width="10" height="32" rx="2"/>
+        <circle cx="200" cy="200" r="8"/>
+        <path d="M188,125 C140,115 70,85 15,48 C35,75 75,95 125,108 C75,102 40,92 22,82 C48,104 88,118 135,125 C92,124 60,118 42,112 C68,128 105,137 148,140 C112,142 84,140 68,136 C95,148 135,152 188,146 Z"/>
+        <path d="M212,125 C260,115 330,85 385,48 C365,75 325,95 275,108 C325,102 360,92 378,82 C352,104 312,118 265,125 C308,124 340,118 358,112 C332,128 295,137 252,140 C288,142 316,140 332,136 C305,148 265,152 212,146 Z"/>
+      </svg>
+    </div>
+
     <h1>Consulta de Tarifas</h1>
     <p class="sub">Vale do Paraíba • Atualização automática</p>
 
@@ -181,4 +219,4 @@
     carregarTarifas();
   </script>
 </body>
-</html
+</html>
