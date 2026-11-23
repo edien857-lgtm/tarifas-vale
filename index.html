@@ -7,12 +7,13 @@
   <style>
     :root {
       --bg: #071324;
-      --card: rgba(15, 31, 56, 0.88);
+      --card: rgba(15, 31, 56, 0.90);
       --text: #f8fafc;
       --muted: #cbd5e1;
       --accent: #38bdf8;
       --accent-bg: rgba(56, 189, 248, 0.14);
       --border: #1e3a63;
+      --danger: #f87171;
     }
     body {
       font-family: 'Segoe UI', system-ui, sans-serif;
@@ -27,7 +28,6 @@
       position: relative;
       overflow-x: hidden;
     }
-    /* Gládio Alado gigante em marca d'água no fundo da tela */
     .bg-gladio {
       position: fixed;
       top: 50%;
@@ -46,9 +46,9 @@
       background: var(--card);
       backdrop-filter: blur(6px);
       border: 1px solid var(--border);
-      max-width: 440px;
+      max-width: 480px;
       width: 100%;
-      padding: 28px;
+      padding: 26px;
       border-radius: 16px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
     }
@@ -56,7 +56,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .badge {
       display: inline-block;
@@ -69,29 +69,59 @@
       text-transform: uppercase;
     }
     .mini-gladio {
-      width: 48px;
+      width: 46px;
       height: auto;
       color: var(--accent);
       opacity: 0.9;
     }
-    h1 { font-size: 1.4rem; margin: 0 0 4px; }
-    p.sub { font-size: 0.88rem; color: var(--muted); margin: 0 0 22px; }
-    label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+    h1 { font-size: 1.35rem; margin: 0 0 4px; }
+    p.sub { font-size: 0.85rem; color: var(--muted); margin: 0 0 18px; }
+
+    /* Estilo das Abas */
+    .tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(7, 19, 36, 0.7);
+      padding: 5px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 9px 6px;
+      background: transparent;
+      color: var(--muted);
+      border: none;
+      border-radius: 7px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: #071324;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    label { display: block; font-size: 0.84rem; color: var(--muted); margin-bottom: 6px; }
     select, input {
       width: 100%;
-      padding: 12px;
+      padding: 11px 12px;
       background: rgba(7, 19, 36, 0.85);
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: 10px;
-      font-size: 0.98rem;
-      margin-bottom: 16px;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
       box-sizing: border-box;
     }
     .atalhos {
       display: flex;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .atalhos button {
       flex: 1;
@@ -101,41 +131,110 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
     }
     .atalhos button:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Estilo da Aba Somador */
+    .linha-add {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .linha-add input {
+      width: 80px;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .btn-add {
+      flex: 1;
+      background: var(--accent);
+      color: #071324;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      padding: 11px;
+    }
+    .btn-add:hover { opacity: 0.9; }
+    .lista-soma {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+    .lista-soma li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(7, 19, 36, 0.75);
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+    .item-info { flex: 1; padding-right: 8px; }
+    .item-qtd { color: var(--accent); font-weight: 700; }
+    .btn-remover {
+      background: transparent;
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      color: var(--danger);
+      border-radius: 6px;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .btn-limpar {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      text-decoration: underline;
+      font-size: 0.78rem;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
     .resultado {
       background: var(--accent-bg);
       border: 1px solid rgba(56, 189, 248, 0.35);
       border-radius: 12px;
-      padding: 20px;
+      padding: 18px;
       text-align: center;
     }
-    .valor-unitario { font-size: 0.9rem; color: var(--muted); }
-    .valor-total { font-size: 2.1rem; font-weight: 800; color: var(--accent); margin: 6px 0; }
-    .data-att { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
+    .detalhe-linha { font-size: 0.86rem; color: var(--muted); margin-bottom: 4px; }
+    .alerta-diff {
+      display: inline-block;
+      background: rgba(250, 204, 21, 0.16);
+      color: #fde047;
+      font-size: 0.76rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin: 4px 0;
+    }
+    .valor-total { font-size: 2rem; font-weight: 800; color: var(--accent); margin: 6px 0; }
+    .data-att { font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
   </style>
 </head>
 <body>
 
   <!-- Gládio Alado em vetor embutido no fundo -->
   <svg class="bg-gladio" viewBox="0 0 400 220" fill="currentColor" xmlns="http://w3.org">
-    <!-- Lâmina e punho do sabre central -->
     <polygon points="200,12 193,42 193,155 207,155 207,42"/>
     <rect x="172" y="155" width="56" height="7" rx="3"/>
     <rect x="195" y="162" width="10" height="32" rx="2"/>
     <circle cx="200" cy="200" r="8"/>
-    <!-- Asa Esquerda -->
     <path d="M188,125 C140,115 70,85 15,48 C35,75 75,95 125,108 C75,102 40,92 22,82 C48,104 88,118 135,125 C92,124 60,118 42,112 C68,128 105,137 148,140 C112,142 84,140 68,136 C95,148 135,152 188,146 Z"/>
-    <!-- Asa Direita -->
     <path d="M212,125 C260,115 330,85 385,48 C365,75 325,95 275,108 C325,102 360,92 378,82 C352,104 312,118 265,125 C308,124 340,118 358,112 C332,128 295,137 252,140 C288,142 316,140 332,136 C305,148 265,152 212,146 Z"/>
   </svg>
 
   <div class="card">
     <div class="header-topo">
       <span class="badge">EMTU • Pássaro Marron</span>
-      <!-- Mini Gládio Alado no topo do cartão -->
       <svg class="mini-gladio" viewBox="0 0 400 220" fill="currentColor" xmlns="http://w3.org">
         <polygon points="200,12 193,42 193,155 207,155 207,42"/>
         <rect x="172" y="155" width="56" height="7" rx="3"/>
@@ -149,74 +248,60 @@
     <h1>Consulta de Tarifas</h1>
     <p class="sub">Vale do Paraíba • Atualização automática</p>
 
-    <label for="trecho">Trecho / Linha:</label>
-    <select id="trecho"></select>
-
-    <label for="qtd">Quantidade de passagens:</label>
-    <input type="number" id="qtd" value="1" min="1" max="100">
-
-    <div class="atalhos">
-      <button type="button" onclick="setQtd(1)">Só Ida (1)</button>
-      <button type="button" onclick="setQtd(2)">Ida e Volta (2)</button>
-      <button type="button" onclick="setQtd(44)">Mês Útil (44)</button>
+    <!-- Botões das 3 Abas -->
+    <div class="tabs">
+      <button type="button" class="tab-btn active" onclick="abrirAba('simples', this)">Rápida</button>
+      <button type="button" class="tab-btn" onclick="abrirAba('mensal', this)">Mês (22d)</button>
+      <button type="button" class="tab-btn" onclick="abrirAba('somar', this)">Somar Tarifas</button>
     </div>
 
-    <div class="resultado">
-      <div class="valor-unitario" id="unitario">Tarifa unitária: R$ 0,00</div>
-      <div class="valor-total" id="total">R$ 0,00</div>
-      <div class="data-att" id="atualizacao">Carregando dados...</div>
+    <!-- ABA 1: Consulta Rápida -->
+    <div id="aba-simples" class="tab-content active">
+      <label for="trecho">Trecho / Linha:</label>
+      <select id="trecho"></select>
+
+      <label for="qtd">Quantidade de passagens:</label>
+      <input type="number" id="qtd" value="1" min="1" max="100">
+
+      <div class="atalhos">
+        <button type="button" onclick="setQtd(1)">Só Ida (1)</button>
+        <button type="button" onclick="setQtd(2)">Ida e Volta (2)</button>
+        <button type="button" onclick="setQtd(44)">22 Dias (44)</button>
+      </div>
+
+      <div class="resultado">
+        <div class="detalhe-linha" id="unitario">Tarifa unitária: R$ 0,00</div>
+        <div class="valor-total" id="total">R$ 0,00</div>
+        <div class="data-att" id="atualizacao">Carregando dados...</div>
+      </div>
     </div>
-  </div>
 
-  <script>
-    let tarifas = {};
+    <!-- ABA 2: Mês Útil (22 dias) -->
+    <div id="aba-mensal" class="tab-content">
+      <label for="trecho-ida">Trecho de IDA:</label>
+      <select id="trecho-ida"></select>
 
-    function setQtd(n) {
-      document.getElementById('qtd').value = n;
-      calcular();
-    }
+      <label for="trecho-volta">Trecho de VOLTA (selecione se for diferente):</label>
+      <select id="trecho-volta"></select>
 
-    async function carregarTarifas() {
-      try {
-        const resposta = await fetch('tarifas_vale.json?nocache=' + Date.now());
-        tarifas = await resposta.json();
+      <label for="dias-uteis">Dias úteis no mês (padrão: 22):</label>
+      <input type="number" id="dias-uteis" value="22" min="1" max="31">
 
-        const select = document.getElementById('trecho');
-        select.innerHTML = '';
+      <div class="resultado">
+        <div class="detalhe-linha" id="resumo-diario">Ida: R$ 0,00 + Volta: R$ 0,00 = R$ 0,00/dia</div>
+        <div id="aviso-diferenca"></div>
+        <div class="valor-total" id="total-mensal">R$ 0,00</div>
+        <div class="data-att" id="atualizacao-mensal">Baseado em 22 dias úteis (44 viagens)</div>
+      </div>
+    </div>
 
-        Object.keys(tarifas).forEach(nomeTrecho => {
-          const opt = document.createElement('option');
-          opt.value = nomeTrecho;
-          opt.textContent = nomeTrecho;
-          select.appendChild(opt);
-        });
+    <!-- ABA 3: Somador de Várias Tarifas -->
+    <div id="aba-somar" class="tab-content">
+      <label for="trecho-soma">Escolha o trecho para adicionar:</label>
+      <select id="trecho-soma"></select>
 
-        calcular();
-      } catch (e) {
-        document.getElementById('atualizacao').textContent = 'Erro ao carregar tarifas.';
-      }
-    }
-
-    function calcular() {
-      const trecho = document.getElementById('trecho').value;
-      const qtd = parseInt(document.getElementById('qtd').value) || 1;
-      const item = tarifas[trecho];
-
-      if (!item) return;
-
-      const total = item.valor * qtd;
-      document.getElementById('unitario').textContent =
-        `Tarifa unitária: R$ ${item.valor.toFixed(2).replace('.', ',')}`;
-      document.getElementById('total').textContent =
-        `R$ ${total.toFixed(2).replace('.', ',')}`;
-      document.getElementById('atualizacao').textContent =
-        `Última verificação: ${item.atualizado_em}`;
-    }
-
-    document.getElementById('trecho').addEventListener('change', calcular);
-    document.getElementById('qtd').addEventListener('input', calcular);
-
-    carregarTarifas();
-  </script>
-</body>
-</html>
+      <label for="qtd-soma">Quantidade e adicionar na soma:</label>
+      <div class="linha-add">
+        <input type="number" id="qtd-soma" value="1" min="1" max="200" title="Quantidade">
+        <button type="button" class="btn-add" onclick="adicionarNaSoma()">+ Adicionar à Soma</button>
+      </div>
