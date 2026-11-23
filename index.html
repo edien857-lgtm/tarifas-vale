@@ -24,6 +24,7 @@ select,input{width:100%;padding:10px;background:#071324;color:#fff;border:1px so
 .box{background:rgba(56,189,248,.14);border:1px solid rgba(56,189,248,.35);border-radius:12px;padding:16px;text-align:center}
 .total{font-size:30px;font-weight:800;color:#38bdf8;margin:6px 0}
 .info{font-size:13px;color:#cbd5e1}
+.vig{font-size:12px;color:#93c5fd;margin-top:6px;font-weight:600}
 .diff{display:inline-block;background:rgba(250,204,21,.18);color:#fde047;font-size:12px;padding:3px 8px;border-radius:6px;margin-top:4px}
 ul{list-style:none;padding:0;margin:0 0 14px;max-height:160px;overflow-y:auto}
 li{display:flex;justify-content:space-between;align-items:center;background:#071324;border:1px solid #1e3a63;padding:8px 10px;border-radius:8px;margin-bottom:6px;font-size:13px}
@@ -58,6 +59,7 @@ li{display:flex;justify-content:space-between;align-items:center;background:#071
     <div class="box">
       <div class="info" id="u1">Unitária: R$ 0,00</div>
       <div class="total" id="r1">R$ 0,00</div>
+      <div class="vig" id="v1">Vigência oficial: --</div>
       <div class="info" id="d1">Carregando...</div>
     </div>
   </div>
@@ -70,6 +72,7 @@ li{display:flex;justify-content:space-between;align-items:center;background:#071
       <div class="info" id="u2">Ida + Volta</div>
       <div id="df"></div>
       <div class="total" id="r2">R$ 0,00</div>
+      <div class="vig" id="v2">Vigência oficial: --</div>
       <div class="info" id="d2">22 dias úteis</div>
     </div>
   </div>
@@ -114,7 +117,8 @@ function calc1(){
   const it=dados[t1.value];if(!it)return;
   u1.textContent='Unitária: '+fmt(it.valor);
   r1.textContent=fmt(it.valor*(parseInt(q1.value)||1));
-  d1.textContent='Atualizado em: '+it.atualizado_em;
+  v1.textContent='Vigência oficial EMTU: '+(it.vigencia_oficial||'Consultando...');
+  d1.textContent='Última verificação do robô: '+(it.atualizado_em||'--');
 }
 function calc2(){
   const a=dados[ti.value],b=dados[tv.value],dias=parseInt(du.value)||22;
@@ -122,6 +126,7 @@ function calc2(){
   u2.textContent=`Ida ${fmt(a.valor)} + Volta ${fmt(b.valor)} = ${fmt(a.valor+b.valor)}/dia`;
   df.innerHTML=a.valor!==b.valor?`<span class="diff">Diferença de ${fmt(Math.abs(a.valor-b.valor))} por trecho</span>`:'';
   r2.textContent=fmt((a.valor+b.valor)*dias);
+  v2.textContent=`Vigência: Ida (${a.vigencia_oficial||'--'}) • Volta (${b.vigencia_oficial||'--'})`;
   d2.textContent=`${dias} dias úteis (${dias*2} passagens)`;
 }
 function addSoma(){
