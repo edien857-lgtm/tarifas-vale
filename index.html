@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Tarifas - Vale do Paraíba</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f4f6f9;
+      color: #1f2937;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px;
+      margin: 0;
+    }
+    .card {
+      background: #ffffff;
+      max-width: 440px;
+      width: 100%;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    h1 { font-size: 1.3rem; margin: 0 0 6px; color: #111827; }
+    p.sub { font-size: 0.9rem; color: #6b7280; margin: 0 0 20px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+    select, input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+    .resultado {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .valor-unitario { font-size: 0.9rem; color: #1e40af; }
+    .valor-total { font-size: 1.8rem; font-weight: 700; color: #1d4ed8; margin: 6px 0; }
+    .data-att { font-size: 0.78rem; color: #6b7280; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Tarifas de Ônibus — Vale</h1>
+    <p class="sub">Consulta automática EMTU / Pássaro Marron</p>
+
+    <label for="trecho">Selecione o trecho:</label>
+    <select id="trecho"></select>
+
+    <label for="qtd">Quantidade de passagens (ex: 2 = ida e volta):</label>
+    <input type="number" id="qtd" value="1" min="1" max="100">
+
+    <div class="resultado">
+      <div class="valor-unitario" id="unitario">Tarifa unitária: R$ 0,00</div>
+      <div class="valor-total" id="total">R$ 0,00</div>
+      <div class="data-att" id="atualizacao">Carregando dados...</div>
+    </div>
+  </div>
+
+  <script>
+    let tarifas = {};
+
+    async function carregarTarifas() {
+      try {
+        const resposta = await fetch('tarifas_vale.json?nocache=' + Date.now());
+        tarifas = await resposta.json();
+
+        const select = document.getElementById('trecho');
+        select.innerHTML = '';
+
+        Object.keys(tarifas).forEach(nomeTrecho => {
+          const opt = document.createElement('option');
+          opt.value = nomeTrecho;
+          opt.textContent = nomeTrecho;
+          select.appendChild(opt);
+        });
+
+        calcular();
+      } catch (e) {
+        document.getElementById('atualizacao').textContent = 'Erro ao carregar tarifas.';
+      }
+    }
+
+    function calcular() {
+      const trecho = document.getElementById('trecho').value;
+      const qtd = parseInt(document.getElementById('qtd').value) || 1;
+      const item = tarifas[trecho];
+
+      if (!item) return;
+
+      const total = item.valor * qtd;
+      document.getElementById('unitario').textContent =
+        `Tarifa unitária: R$ ${item.valor.toFixed(2).replace('.', ',')}`;
+      document.getElementById('total').textContent =
+        `R$ ${total.toFixed(2).replace('.', ',')}`;
+      document.getElementById('atualizacao').textContent =
+        `Última verificação: ${item.atualizado_em}`;
+    }
+
+    document.getElementById('trecho').addEventListener('change', calcular);
+    document.getElementById('qtd').addEventListener('input', calcular);
+
+    carregarTarifas();
+  </script>
+</body>
+</html>
