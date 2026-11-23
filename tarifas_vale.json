@@ -1,0 +1,22 @@
+{
+  "Lorena ↔ Guaratinguetá (Comum)": {
+    "valor": 5.95,
+    "atualizado_em": "2026-11-23"
+  },
+  "Lorena ↔ Guaratinguetá (Seletivo)": {
+    "valor": 8.40,
+    "atualizado_em": "2026-11-23"
+  },
+  "Guaratinguetá ↔ Aparecida (Seletivo)": {
+    "valor": 8.40,
+    "atualizado_em": "2026-11-23"
+  },
+  "Guaratinguetá ↔ São José dos Campos (Seletivo)": {
+    "valor": 35.80,
+    "atualizado_em": "2026-11-23"
+  },
+  "Lorena ↔ São José dos Campos (Seletivo)": {
+    "valor": 38.90,
+    "atualizado_em": "2026-11-23"
+  }
+}
